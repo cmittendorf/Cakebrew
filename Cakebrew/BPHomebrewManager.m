@@ -61,7 +61,12 @@ NSString *const kBP_CACHE_DICT_DATA_KEY = @"BP_CACHE_DICT_DATA_KEY";
 
 - (void)updateRebuildingCache:(BOOL)shouldRebuildCache;
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        BPAppDelegate *appDelegate = BPAppDelegateRef;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [appDelegate setRunningBackgroundTask:YES];
+        });
+
         [self setFormulae_installed:[[BPHomebrewInterface sharedInterface] listMode:kBPListInstalled]];
         [self setFormulae_leaves:[[BPHomebrewInterface sharedInterface] listMode:kBPListLeaves]];
         [self setFormulae_outdated:[[BPHomebrewInterface sharedInterface] listMode:kBPListOutdated]];
@@ -71,8 +76,11 @@ NSString *const kBP_CACHE_DICT_DATA_KEY = @"BP_CACHE_DICT_DATA_KEY";
 			[self setFormulae_all:[[BPHomebrewInterface sharedInterface] listMode:kBPListAll]];
 			[self storeAllFormulaeCaches];
         }
-		
-		[self.delegate homebrewManagerFinishedUpdating:self];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [appDelegate setRunningBackgroundTask:NO];
+            [self.delegate homebrewManagerFinishedUpdating:self];
+        });
     });
 }
 
