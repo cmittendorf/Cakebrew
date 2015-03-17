@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6724"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -466,17 +466,17 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="Cakebrew" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371">
+        <window title="Cakebrew" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="MainWindow" animationBehavior="default" id="371">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <rect key="contentRect" x="629" y="349" width="570" height="342"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <value key="minSize" type="size" width="570" height="342"/>
             <view key="contentView" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="570" height="342"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <splitView dividerStyle="thin" vertical="YES" id="Exu-Zx-Kij" customClass="DMSplitView">
+                    <splitView autosaveName="" dividerStyle="thin" vertical="YES" id="Exu-Zx-Kij" customClass="DMSplitView">
                         <rect key="frame" x="0.0" y="22" width="570" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -901,7 +901,7 @@
                         </constraints>
                     </customView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tiK-fW-tE7">
-                        <rect key="frame" x="444" y="3" width="119" height="14"/>
+                        <rect key="frame" x="444" y="4" width="119" height="14"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="115" id="olS-5g-fL0"/>
                         </constraints>
@@ -911,21 +911,33 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="mfN-tU-7Yx">
+                        <rect key="frame" x="5" y="2" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="fnF-6Z-K1t"/>
+                            <constraint firstAttribute="height" constant="16" id="s9s-BR-HxU"/>
+                        </constraints>
+                        <connections>
+                            <binding destination="494" name="animate" keyPath="runningBackgroundTask" id="VYv-tM-SJr"/>
+                        </connections>
+                    </progressIndicator>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Exu-Zx-Kij" firstAttribute="top" secondItem="372" secondAttribute="top" id="2Ut-ma-pgj"/>
                     <constraint firstItem="SfC-W7-8MF" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="3Hd-Lp-NLJ"/>
                     <constraint firstItem="Exu-Zx-Kij" firstAttribute="leading" secondItem="372" secondAttribute="leading" id="47Q-t9-f4a"/>
+                    <constraint firstAttribute="bottom" secondItem="mfN-tU-7Yx" secondAttribute="bottom" constant="2" id="4JC-dd-Zgr"/>
                     <constraint firstAttribute="trailing" secondItem="Exu-Zx-Kij" secondAttribute="trailing" id="Rif-uJ-q5G"/>
                     <constraint firstAttribute="trailing" secondItem="SfC-W7-8MF" secondAttribute="trailing" id="SRE-2S-Kvi"/>
                     <constraint firstItem="SfC-W7-8MF" firstAttribute="top" secondItem="372" secondAttribute="top" id="YFZ-5C-nQp"/>
-                    <constraint firstItem="tiK-fW-tE7" firstAttribute="top" secondItem="Exu-Zx-Kij" secondAttribute="bottom" constant="5" id="q34-YU-n3B"/>
+                    <constraint firstItem="mfN-tU-7Yx" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="5" id="pX8-2R-CX6"/>
+                    <constraint firstItem="tiK-fW-tE7" firstAttribute="top" secondItem="Exu-Zx-Kij" secondAttribute="bottom" constant="4" id="q34-YU-n3B"/>
                     <constraint firstAttribute="bottom" secondItem="Exu-Zx-Kij" secondAttribute="bottom" constant="22" id="xDp-2K-z7j"/>
                     <constraint firstAttribute="trailing" secondItem="tiK-fW-tE7" secondAttribute="trailing" constant="9" id="xmK-vF-ZX8"/>
-                    <constraint firstItem="tiK-fW-tE7" firstAttribute="top" secondItem="SfC-W7-8MF" secondAttribute="bottom" constant="5" id="zGL-js-3Tn"/>
+                    <constraint firstItem="tiK-fW-tE7" firstAttribute="top" secondItem="SfC-W7-8MF" secondAttribute="bottom" constant="4" id="zGL-js-3Tn"/>
                 </constraints>
             </view>
-            <toolbar key="toolbar" implicitIdentifier="CE02E434-3FDB-4366-AA48-F261AF27DFA5" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="small" id="646">
+            <toolbar key="toolbar" implicitIdentifier="CE02E434-3FDB-4366-AA48-F261AF27DFA5" displayMode="iconAndLabel" sizeMode="small" id="646">
                 <allowedToolbarItems>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="650"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="651"/>
@@ -948,9 +960,9 @@
                     <toolbarItem implicitItemIdentifier="5F1B8DF2-E0AA-4377-B27C-BBECB85973C0" label="Search Formulae" paletteLabel="Search Formulae" id="hjv-gb-fjC">
                         <nil key="toolTip"/>
                         <size key="minSize" width="96" height="22"/>
-                        <size key="maxSize" width="96" height="22"/>
+                        <size key="maxSize" width="130" height="22"/>
                         <searchField key="view" wantsLayer="YES" verticalHuggingPriority="750" id="zLQ-g9-dpv">
-                            <rect key="frame" x="0.0" y="14" width="96" height="22"/>
+                            <rect key="frame" x="0.0" y="14" width="130" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="" usesSingleLineMode="YES" bezelStyle="round" id="5Qx-kF-IcB">
                                 <font key="font" metaFont="system"/>
@@ -973,6 +985,7 @@
                 </defaultToolbarItems>
             </toolbar>
             <contentBorderThickness minY="22"/>
+            <point key="canvasLocation" x="220" y="459"/>
         </window>
         <menu title="Formula" id="dg5-kq-v1Y">
             <items>
