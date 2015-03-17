@@ -89,6 +89,11 @@ NSString *const kBP_FORMULA_OPTION_DESCRIPTION = @"BP_FORMULA_OPTION_DESCRIPTION
 	return YES;
 }
 
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
+{
+    return YES;
+}
+
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender
 {
 	[[BPHomebrewManager sharedManager] cleanUp];
