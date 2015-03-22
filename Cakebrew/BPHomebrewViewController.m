@@ -575,6 +575,9 @@ typedef NS_ENUM(NSUInteger, HomeBrewTab) {
 }
 
 - (IBAction)beginFormulaSearch:(id)sender {
+    if (![self.toolbar isVisible]) {
+        [self.toolbar setVisible:YES];
+    }
 	[self.searchField becomeFirstResponder];
 }
 
